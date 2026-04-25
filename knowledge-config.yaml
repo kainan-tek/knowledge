@@ -1,0 +1,17 @@
+name: "8295_qcom"
+description: "SA8295 AudioReach PDF technical documents"
+
+doc_dirs:
+  - "../"
+
+languages: [en, zh]
+
+doc_id_pattern: "^(80-[A-Z]{2}\\d{3}-\\d+)"
+
+dedup:
+  enabled: true
+  revision_pattern: "(?:_REV_([A-Z]+)_?|_(?:REV_)?([A-Z]{2})[ _])"
+  revision_order: alphabetical
+
+index_root: "index/"
+tmp_dir: "tmp/"

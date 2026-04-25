@@ -1,0 +1,11 @@
+# Temporary skill files
+skill/tmp/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,75 @@
+version: 2
+generated: "2026-04-24"
+tool_used: "pdfplumber"
+
+documents:
+  - id: "80-PM164-51"
+    file: "80-PM164-51_SA8295 HQX Audio Bringup Guide.pdf"
+    title: "SA8295 HQX Audio Bringup Guide"
+    mtime: "2022-09-25T15:23:38"
+    summary: "Complete audio bringup guide for SA8295 HQX QNX hypervisor platform - covers software architecture (PVM/LA GVM/LV GVM), code structure (AudioReach driver, ACDB, GSL, GPR, CSD2), GPIO/protocol configuration (TDM/I2S/PCM), multi-lane TDM, slot mapping, muxing/demuxing, clock enable, Mercury codec control, and verification commands"
+    topics:
+      - SA8295 HQX
+      - audio bringup
+      - QNX hypervisor
+      - AudioReach
+      - PVM
+      - LA GVM
+      - LV GVM
+      - TDM configuration
+      - I2S configuration
+      - PCM configuration
+      - GPIO configuration
+      - multi-lane TDM
+      - slot mapping
+      - verification commands
+      - SA8295音频调试
+      - QNX虚拟化
+      - AudioReach架构
+      - TDM配置
+      - I2S配置
+      - PCM配置
+      - GPIO配置
+    all_key_concepts:
+      - audio_service
+      - audio_chime
+      - agmplay
+      - agmcap
+      - alsaucm
+      - Pulse Audio
+      - Mercury codec
+      - NXP codec
+      - lane mask
+      - muxing module
+      - demuxing module
+      - backend_conf.xml
+      - card-defs.xml
+      - usecaseKvManager.xml
+      - acdb-blob
+      - GKV CKV
+      - LPAIF_RXTX
+      - LPAIF_VA
+      - LPAIF_WSA
+      - LPAIF_AUD
+      - LPAIF_SDR
+    chapter_titles:
+      - "1 Introduction"
+      - "2 Software architecture and code structure"
+      - "2.1 PVM code structure"
+      - "2.2 LAGVM code structure"
+      - "2.3 LV GVM code structures"
+      - "3 Code customization"
+      - "3.1 GPIO configuration"
+      - "3.2 Protocol configuration"
+      - "3.3 Multi-lane TDM"
+      - "3.4 Lane mask value calculate"
+      - "3.5 Slot mapping"
+      - "3.6 Verification"
+      - "3.6.1 PVM playback and capture commands"
+      - "3.6.2 LA GVM - agmplay and agmcap"
+      - "3.6.3 LV GVM - ALSAUCM and Pulse Audio commands"
+      - "A References"
+    revision: null
+    supersedes: []
+    index_status: complete
+    sub_index: "80-PM164-51.yaml"

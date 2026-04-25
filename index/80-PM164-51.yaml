@@ -1,0 +1,166 @@
+version: 2
+document_id: "80-PM164-51"
+file: "80-PM164-51_SA8295 HQX Audio Bringup Guide.pdf"
+generated: "2026-04-26"
+tool_used: "pdfplumber"
+
+chapters:
+  - id: ch1
+    title: "1 Introduction"
+    start_page: 5
+    end_page: 5
+    page_count: 1
+    summary: "Document purpose, conventions, and technical assistance information for SA8295 HQX audio bringup"
+    key_concepts: [SA8295 HQX, QNX hypervisor, audio bringup]
+    key_functions: []
+    key_structures: []
+
+  - id: ch2
+    title: "2 Software architecture and code structure"
+    start_page: 6
+    end_page: 13
+    page_count: 8
+    summary: "Detailed architecture overview for PVM, LA GVM, and LV GVM audio systems - covers AudioReach driver modules, ACDB, GSL, GPR, CSD2, and code paths"
+    key_concepts: [PVM, LA GVM, LV GVM, AudioReach, Audio HAL, PAL, AGM, GSL, GPR, ACDB, CSD2, audio_service, deva driver, hypervisor architecture]
+    key_functions: [audio_service_base_init, csd2_ipc_server_start, mcm_init, amfs_init]
+    key_structures: [audio_ar, audio_driver, audio_service, acdb, ar_osal, gpr, gsl, spf, csd2, csd2_ipc, gsl_be, mcm_lib, amfs2_lib]
+
+  - id: ch2_1
+    title: "2.1 PVM code structure"
+    start_page: 8
+    end_page: 11
+    page_count: 4
+    summary: "AudioReach driver modules on PVM side - audio_driver, audio_service, qnx_audio, ACDB parsing, GPR communication, GSL backend"
+    key_concepts: [AudioReach driver, audio_driver, audio_service, amfs2_lib, acdb, ar_osal, gpr, gsl, spf, csd2, mcm_lib]
+    key_functions: []
+    key_structures: [audio_ar, acdb, ar_osal, ar_util, gpr, gsl, spf, csd2, csd2_ipc, gsl_be, mcm_lib]
+
+  - id: ch2_2
+    title: "2.2 LAGVM code structure"
+    start_page: 12
+    end_page: 12
+    page_count: 1
+    summary: "Android Audio HAL, PAL, AGM, GSL FE structure and configuration files for LA Guest Virtual Machine"
+    key_concepts: [Audio HAL, PAL, AGM, GSL FE, GPR, usecaseKvManager.xml, card-defs.xml, kvh2xml.xml, GKV, CKV]
+    key_functions: [agmplay, agmcap]
+    key_structures: [Audio HAL, PAL, AGM, GSL FE, GPR]
+
+  - id: ch2_3
+    title: "2.3 LV GVM code structures"
+    start_page: 13
+    end_page: 13
+    page_count: 1
+    summary: "AGM, ALSA Plugin, Pulse Audio configuration for LV Guest Virtual Machine hypervisor environment"
+    key_concepts: [LV GVM, AGM, ALSA Plugin, Pulse Audio, GSL FE, MM HAB API]
+    key_functions: []
+    key_structures: [AGM, ALSA Plugin, GSL FE, GPR]
+
+  - id: ch3
+    title: "3 Code customization"
+    start_page: 14
+    end_page: 26
+    page_count: 13
+    summary: "Audio bringup customization - GPIO configuration, protocol setup (TDM/I2S/PCM), multi-lane TDM, slot mapping, clock enable, codec control, verification"
+    key_concepts: [GPIO configuration, TDM, I2S, PCM, multi-lane TDM, lane mask, slot mapping, muxing/demuxing, clock enable, Mercury codec, NXP codec, verification]
+    key_functions: []
+    key_structures: [gpio_config.c, mcm.c, libMercuryApp.so, TDM Sink, TDM Source, I2S Sink, I2S Source, PCM Sink, PCM Source, muxing module, demuxing module]
+
+  - id: ch3_1
+    title: "3.1 GPIO configuration"
+    start_page: 14
+    end_page: 15
+    page_count: 2
+    summary: "Audio interface GPIO pin configuration - direction, pull up/down, drive strength settings in gpio_config.c"
+    key_concepts: [GPIO, pin direction, pull up/down, drive strength, QUA_MI2S, LPI_MI2S, TLMM]
+    key_functions: []
+    key_structures: [gpio_config.c, DAL_GPIO_OUTPUT, DAL_GPIO_INPUT, DAL_GPIO_PULL_DOWN, DAL_GPIO_NO_PULL]
+
+  - id: ch3_2
+    title: "3.2 Protocol configuration"
+    start_page: 15
+    end_page: 19
+    page_count: 5
+    summary: "Audio interface protocol setup - TDM sink/source, I2S sink/source, PCM sink/source configuration in ACDB"
+    key_concepts: [TDM, I2S, PCM, sink module, source module, playback, capture, ACDB configuration]
+    key_functions: []
+    key_structures: [TDM Sink, TDM Source, I2S Sink, I2S Source, HW PCM Sink, HW PCM Source]
+
+  - id: ch3_3
+    title: "3.3 Multi-lane TDM"
+    start_page: 20
+    end_page: 20
+    page_count: 1
+    summary: "Multi-lane TDM lane mask parameter configuration for supporting multiple data lanes"
+    key_concepts: [multi-lane TDM, lane mask, SD0, SD1, SD2, SD3, data lanes]
+    key_functions: []
+    key_structures: [lane mask parameter]
+
+  - id: ch3_4
+    title: "3.4 Lane mask value calculate"
+    start_page: 20
+    end_page: 21
+    page_count: 2
+    summary: "Lane mask value calculation table for SD0-SD3 data lane combinations"
+    key_concepts: [lane mask, mask value, SD0, SD1, SD2, SD3, 0x0-0xF values]
+    key_functions: []
+    key_structures: []
+
+  - id: ch3_5
+    title: "3.5 Slot mapping"
+    start_page: 21
+    end_page: 25
+    page_count: 5
+    summary: "Multi-lane TDM slot mapping with memory packing formats - muxing/demuxing module, connection array, clock enable, codec control"
+    key_concepts: [slot mapping, slot offset, memory packing, 32-bit/16-bit, muxing module, demuxing module, input port, output port, connection array, clock enable, Mercury codec, NXP codec]
+    key_functions: [merc_app_main_fn]
+    key_structures: [muxing module, demuxing module, input port, output port, connection array, libMercuryApp.so, mcm.c]
+
+  - id: ch3_6
+    title: "3.6 Verification"
+    start_page: 26
+    end_page: 32
+    page_count: 7
+    summary: "Audio driver initialization verification - key logs, PVM commands (audio_chime, waverec), LA GVM commands (agmplay, agmcap), LV GVM commands (alsaucm, aplay, arecord, paplay, parecord)"
+    key_concepts: [verification, audio_service logs, PIL DRV logs, IPCRTR, audio_chime, waverec, agmplay, agmcap, alsaucm, aplay, arecord, paplay, parecord, Pulse Audio, ALSA UCM]
+    key_functions: [audio_service_base_init, mcm_init, amfs_init, agmplay, agmcap, alsaucm, aplay, arecord, paplay, parecord]
+    key_structures: [audio_chime, waverec, agmplay, agmcap, alsaucm, Pulse Audio]
+
+  - id: ch3_6_1
+    title: "3.6.1 PVM playback and capture commands"
+    start_page: 27
+    end_page: 28
+    page_count: 2
+    summary: "PVM audio interface verification commands - audio_chime, waverec with GPIO mapping table for LPI/Low-speed/High-speed Mi2S interfaces"
+    key_concepts: [audio_chime, waverec, LPI MI2S, Low-speed MI2S, High-speed MI2S, LPAIF_RXTX, LPAIF_VA, LPAIF_WSA, LPAIF_AUD, LPAIF_SDR, GPIO mapping]
+    key_functions: [audio_chime, waverec]
+    key_structures: [LPAIF_RXTX, LPAIF_VA, LPAIF_WSA, LPAIF_AUD, LPAIF_SDR]
+
+  - id: ch3_6_2
+    title: "3.6.2 LA GVM - agmplay and agmcap"
+    start_page: 28
+    end_page: 29
+    page_count: 2
+    summary: "LA GVM playback/capture verification using agmplay and agmcap utilities with TDM interface configuration and GKV examples"
+    key_concepts: [agmplay, agmcap, TDM-LPAIF-RX/TX, Key_StreamRX, Key_DeviceRX, Key_DevicePP_RX, backend_conf.xml, GKV]
+    key_functions: [agmplay, agmcap]
+    key_structures: [backend_conf.xml]
+
+  - id: ch3_6_3
+    title: "3.6.3 LV GVM - ALSAUCM and Pulse Audio commands"
+    start_page: 29
+    end_page: 32
+    page_count: 4
+    summary: "LV GVM verification using ALSA UCM verbs (HiFi, Record, Navigation) and Pulse Audio commands with GKV examples and binary payload generation via QACT"
+    key_concepts: [alsaucm, aplay, arecord, paplay, parecord, Pulse Audio, HiFi verb, Record verb, Navigation verb, GKV, acdb-blob, QACT ALSALib Exporter]
+    key_functions: [alsaucm, aplay, arecord, paplay, parecord]
+    key_structures: [alsaucm-conf, gvmauto8295-adp-star-snd-card, acdb-blob]
+
+  - id: chA
+    title: "A References"
+    start_page: 33
+    end_page: 33
+    page_count: 1
+    summary: "Acronyms and terms glossary - ACDB, CKV, CSD, GKV, GSL, GVM, HGH, PVM, SPF, AML, APM, GPR, GEF, QAL, PAL, AGM, SSL, MFC, SAL, SPR, PDR, AMDB, PRM, OLC"
+    key_concepts: [ACDB, CKV, CSD, GKV, GSL, GVM, HGH, PVM, SPF, AML, APM, GPR, GEF, QAL, PAL, AGM, SSL, MFC, SAL, SPR, PDR, AMDB, PRM, OLC]
+    key_functions: []
+    key_structures: []
