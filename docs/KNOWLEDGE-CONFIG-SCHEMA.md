@@ -25,7 +25,6 @@ If `knowledge-config.yaml` is not found:
 - `/knowledge init`: Run normally (creates config)
 - `/knowledge status`: Show "Config not found. Run /knowledge init first."
 - `/knowledge index`: Show "Config not found. Run /knowledge init first."
-- `/knowledge reindex`: Show "Config not found. Run /knowledge init first."
 - `/knowledge <query>`: Show "Config not found. Run /knowledge init first."
 
 ## Minimal config example

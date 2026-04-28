@@ -32,8 +32,7 @@ PDF 本地技术文档知识库 AI 问答工具。通过两级索引定位到具
 |------|------|
 | `/knowledge init` | 初始化项目配置（新项目首次使用） |
 | `/knowledge index` | 建立或更新全部索引 |
-| `/knowledge index <文件名>` | 只索引指定文档（支持部分匹配） |
-| `/knowledge reindex <文件名>` | 重新索引指定文档 |
+| `/knowledge index <文件名>` | 索引或重新索引指定文档（部分匹配，覆盖已有） |
 | `/knowledge status` | 查看索引健康状态 |
 | `/knowledge <问题>` | 查询文档内容 |
 
@@ -104,17 +103,6 @@ Done
 ```
 
 如果部分匹配到多个文件，会列出让你选择。
-
-### `/knowledge reindex <文件名>`
-
-```
-Matching "VN500-7"... found: 80-VN500-7_AudioReach LA Architecture.pdf
-Re-indexing...
-  TOC: 8 chapters extracted
-  Sub index written: index/80-VN500-7.yaml
-  Main index updated
-Done
-```
 
 ### `/knowledge status`
 

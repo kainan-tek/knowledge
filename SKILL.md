@@ -73,11 +73,7 @@ Initialize or manage `knowledge-config.yaml` in the working directory.
 5. Write sub-index `{document_id}.yaml`: chapters with page ranges, summary, key_concepts. Document ID: capture group from `doc_id_pattern`, else sanitized slug.
 6. Write main index entry. `topics`: add Chinese labels if `{config.languages}` has `zh`. `all_key_concepts`: multi-word always; single-word only if unique to this doc. Set `index_status: complete`. On error: `index_status: error`.
 
-**Steps (single file):** Ensure `{TMP_DIR}` exists, then steps 4–6 above. Overwrite existing entries.
-
-### `/knowledge reindex <filename>`
-
-Force re-index: match filename (partial ok, multi-match asks user) → re-extract → update mtime → update `tool_used` in main index → write sub index then main index
+**Steps (single file):** Partial match; multiple matches → ask user. If already indexed, confirm with user before overwriting. Then ensure `{TMP_DIR}` exists and execute steps 4–6 above. Do NOT execute steps 1–3.
 
 ### `/knowledge status`
 
@@ -100,7 +96,7 @@ Force re-index: match filename (partial ok, multi-match asks user) → re-extrac
 
 **No match:** Show partial matches, suggest keywords, offer wider page ranges.
 
-**Completeness:** Skip docs with `index_status: error`, warn user and suggest `/knowledge reindex`.
+**Completeness:** Skip docs with `index_status: error`, warn user and suggest `/knowledge index <filename>`.
 
 
 ## Index Formats

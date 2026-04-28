@@ -32,8 +32,7 @@ The tool is auto-detected on first `/knowledge index`. If none is installed, you
 |---------|-------------|
 | `/knowledge init` | Initialize project config (first time setup) |
 | `/knowledge index` | Build or update full index |
-| `/knowledge index <filename>` | Index a single document (supports partial match) |
-| `/knowledge reindex <filename>` | Force re-index a document |
+| `/knowledge index <filename>` | Index or re-index a single document (partial match, overwrite existing) |
 | `/knowledge status` | Show index health status |
 | `/knowledge <question>` | Query document content |
 
@@ -104,17 +103,6 @@ Done
 ```
 
 If partial match finds multiple files, you'll be prompted to choose.
-
-### `/knowledge reindex <filename>`
-
-```
-Matching "VN500-7"... found: 80-VN500-7_AudioReach LA Architecture.pdf
-Re-indexing...
-  TOC: 8 chapters extracted
-  Sub index written: index/80-VN500-7.yaml
-  Main index updated
-Done
-```
 
 ### `/knowledge status`
 

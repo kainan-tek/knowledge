@@ -18,5 +18,4 @@ If the user typed `/knowledge X`:
 - If X is `status`: execute the status subcommand
 - If X is `index`: execute the index subcommand (full scan)
 - If X starts with `index ` and has a filename: extract filename, execute index for that single file
-- If X starts with `reindex ` and has a filename: extract filename, execute reindex
 - Otherwise: treat X as a natural language question, execute the query flow

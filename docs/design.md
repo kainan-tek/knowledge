@@ -6,7 +6,7 @@ Projects contain technical PDF documents that need efficient querying. Reading a
 
 ## Solution
 
-A configurable `knowledge` skill with three core subcommands (`index`, `reindex`, `status`) plus query and `init`. Project-specific behavior is defined in `knowledge-config.yaml`. The skill uses a **two-stage index architecture** — the main index enables document-level filtering; sub indexes provide chapter-level precision. This reduces context consumption by 75-85% compared to reading entire PDFs.
+A configurable `knowledge` skill with two core subcommands (`index`, `status`) plus query and `init`. Project-specific behavior is defined in `knowledge-config.yaml`. The skill uses a **two-stage index architecture** — the main index enables document-level filtering; sub indexes provide chapter-level precision. This reduces context consumption by 75-85% compared to reading entire PDFs.
 
 See [SKILL.md](../SKILL.md) for index formats, subcommand flows, and matching logic.
 See [KNOWLEDGE-CONFIG-SCHEMA.md](KNOWLEDGE-CONFIG-SCHEMA.md) for config field definitions.
